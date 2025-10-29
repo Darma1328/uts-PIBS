@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Profil Mahasiswa</h1>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-content="biodata">Biodata</a></li>
+                <li><a href="#" class="nav-link" data-content="pendidikan">Pendidikan</a></li>
+                <li><a href="#" class="nav-link" data-content="pengalaman">Pengalaman</a></li>
+                <li><a href="#" class="nav-link" data-content="keahlian">Keahlian</a></li>
+            </ul>
+        </nav>
+        
+        <div class="web-name">
+            <h2>MY PROFILE</h2>
+        </div>
+        
+        <main>
+            <section id="content">
+                <!-- Konten default: Biodata -->
+                <div id="biodata" class="content-section active">
+                    <h2>Biodata</h2>
+                    <div class="profile-container">
+                        <div class="profile-photo">
+                            <!-- Placeholder untuk foto profil -->
+                            <img src="foto/foto_darma.jpg ">
+                                <circle cx="50" cy="40" r="20" fill="#4a90e2" />
+                                <circle cx="50" cy="100" r="40" fill="#4a90e2" />
+                                <circle cx="40" cy="35" r="5" fill="white" />
+                                <circle cx="60" cy="35" r="5" fill="white" />
+                                <path d="M 40 50 Q 50 60 60 50" stroke="white" stroke-width="2" fill="none" />
+                            </svg>
+                        </div>
+                        <div class="profile-details">
+                            <p><strong>NIM:</strong> 2024081026</p>
+                            <p><strong>Nama:</strong> Darma Wisesa</p>
+                            <p><strong>Agama:</strong> Islam</p>
+                            <p><strong>Tanggal Lahir:</strong> 13-September-2006</p>
+                            <p><strong>Tempat Lahir:</strong> Jakarta</p>
+                            <p><strong>Email:</strong> darma.wisesa@example.com</p>
+                            <p><strong>Telepon:</strong> +62 812 3456 7890</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="pendidikan" class="content-section">
+                    <h2>Pendidikan</h2>
+                    <ul>
+                        <li><strong>Sedang Menempuh S1</strong> - Universitas Pembangunan Jaya</li>
+                    </ul>
+                </div>
+                
+                <div id="pengalaman" class="content-section">
+                    <h2>Pengalaman</h2>
+                    <ul>
+                        <li><strong>Programing dengan Java Script</strong> - Universitas Pembangunan Jaya<br>
+                            Mengembangkan aplikasi Berbasis Objek
+                        </li>
+                        <li><strong>Programing dengan HTML</strong> - Universitas Pembangunan Jaya<br>
+                            Membuat antarmuka pengguna yang responsif dan interaktif untuk aplikasi mobile dan web
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id="keahlian" class="content-section">
+                    <h2>Keahlian</h2>
+                    <ul>
+                        <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, React.js, Vue.js, Bootstrap</li>
+                        <li><strong>Backend:</strong> Node.js, PHP, Python, MySQL, MongoDB</li>
+                        <li><strong>Tools:</strong> NetBeans, VS Code, Figma, BlueJ</li>
+                        <li><strong>Soft Skills:</strong> Komunikasi, Teamwork, Problem Solving, Manajemen Waktu</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <aside>
+                <h3>Hobi & Minat</h3>
+                <p>Gaming, Racing in Game, Pemrograman, Traveling</p>
+            </aside>
+        </main>
+        
+        <footer>
+            <div class="social-media">
+                <p>Instagram: @darma_wises</p>
+                <p>Tiktok: @bubub_racing34</p>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2025. All Rights Reserved</p>
+                <p class="web-slogan">MY PROFILE WEB - NEXT YEAR IS OUR YEAR</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript untuk navigasi dan interaktivitas
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            // Fungsi untuk mengganti konten
+            function switchContent(targetContent) {
+                // Hapus kelas active dari semua section dan nav link
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Tampilkan section yang sesuai dan aktifkan nav link
+                document.getElementById(targetContent).classList.add('active');
+                document.querySelector(`[data-content="${targetContent}"]`).classList.add('active');
+            }
+            
+            // Event listener untuk nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetContent = this.getAttribute('data-content');
+                    switchContent(targetContent);
+                });
+            });
+            
+            // Inisialisasi: pastikan biodata aktif saat pertama kali load
+            switchContent('biodata');
+        });
+    </script>
+</body>
+</html>
